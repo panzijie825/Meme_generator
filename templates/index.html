@@ -1,0 +1,114 @@
+<!--doctype html-->
+<html lang="en">
+
+<head>
+  {% include 'page-includes.html' %}
+</head>
+
+<body>
+
+  <div class="container blank-container">
+
+    <header class="website-header">
+      {% include 'header.html' %}
+    </header>
+
+    <main role="main">
+      <div class="jumbotron p-4 bg-light border mx-0 mx-md-4">
+        <div class="col-sm-12 mx-auto">
+          <h3 class="text-primary m-0">Meme Generator Demo</h3>
+          <p class="font-ninety-em d-none d-lg-block mt-2 mb-0">Put some text here and see how our generator prints an
+            interesting meme!</p>
+        </div>
+      </div>
+
+      <div class="container mb-4">
+
+        <div class="demo-control-panel mx-auto">
+          <div class="wrapper-upload-image-component">
+            <div id="upload-image-component" class="mx-auto mw-100 p-0 my-0 form-control-goodwidth">
+
+              <div class="mb-1" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <form action = "simple-demo" autocomplete="off" class="m-0 p-0" method="POST" id="text-input-form" name="text-input-form">
+                  <div class="p-1 shadow-sm rounded rounded-lg bg-white border">
+                    <div class="rounded rounded-lg bg-white border">
+                      <div class="input-group">
+                        <input type="search" name="text-input-1" placeholder="Enter input text here..."
+                          class="form-control border-0" id="text-input-1" value="{{filename}}"
+                          aria-describedby="button-addon1" />
+                        <div class="input-group-append">
+                          <button type="submit" class="btn text-primary" id="button-addon1">
+                            <i class="material-icons text-primary">send</i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+
+            <div class="text-center">
+              <div class="text-center box-height-25">
+                <img src="static/images/loading-icon-3.gif" id="loading-box" class="d-none" height="12" />
+                <div class="flashes"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 border rounded-lg p-4 mt-4">
+        <div class="section-title mb-4">Output:</div>
+        <div class="row text-center text-lg-left justify-content-center">
+          {% for i in range(1, 4) %}
+          <div class="col-lg-3 col-md-6 p-4 m-0 text-center">
+            <p id = "output-text-{{i}}" class="text-muted px-2 text-smaller text-center m-0">output example</p>
+            <img id = "output-image-{{i}}"  class="img-fluid img-thumbnail m-1" src="static/meme-demo/download ({{i}}).jpeg" alt="generated image {{i}}" />
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="text-smallest text-right text-muted col-12 p-1">
+        Demo by Lulu and Zijie
+      </div>
+
+      <div class="col-12 border rounded-lg p-4 mt-4">
+        <div class="section-title mb-4">Gallery of examples</div>
+        <div class="row text-center text-lg-left justify-content-center">
+
+          {% for i in range(4, 12) %}
+          <div class="col-lg-3 col-md-6 p-4 m-0 text-center">
+            <a href="static/meme-demo/download ({{i}}).jpeg">
+              <img class="img-fluid img-thumbnail m-1" src="static/meme-demo/download ({{i}}).jpeg"
+                alt="example image {{i}}" />
+            </a>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+
+
+  </div>
+
+  </div>
+  </main>
+
+  </div>
+
+  <footer class="page-footer">
+    {% include 'footer.html' %}
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <script src="static/js/vislang.js?v=7"></script>
+</body>
+
+</html>
